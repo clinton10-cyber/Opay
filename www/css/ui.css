@@ -1,0 +1,2431 @@
+/* ==== ui-air ==== */
+.ui-air * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }.ui-air {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }.ui-air .app-container {
+            width: 100%;
+            max-width: 414px;
+            background-color: #ffffff;
+            height: 100vh;
+            max-height: 896px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden; 
+        }.ui-air .scrollable-content {
+            height: 100%;
+            overflow-y: auto;
+            padding-bottom: 50px;
+        }.ui-air .scrollable-content::-webkit-scrollbar {
+            display: none;
+        }.ui-air .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px 15px;
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
+        }.ui-air .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #555;
+        }.ui-air .header-left svg {
+            width: 20px;
+            height: 20px;
+            fill: #555;
+        }.ui-air .header-right {
+            color: #00a86b;
+            font-size: 15px;
+            font-weight: 500;
+        }.ui-air .promo-banner {
+            margin: 0 20px;
+            background: #e3f6eb; 
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            height: 110px; 
+            display: flex;
+            z-index: 10;
+        }.ui-air .promo-logo {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #002b17;
+            z-index: 10;
+        }.ui-air .opay-circle {
+            width: 12px;
+            height: 12px;
+            background-color: #00b875;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }.ui-air .opay-circle::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+        }.ui-air .promo-content {
+            padding: 15px;
+            z-index: 2;
+            width: 65%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }.ui-air .promo-title {
+            font-size: 15px;
+            color: #002b17;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }.ui-air .promo-title strong {
+            color: #004d2e;
+            font-size: 16px;
+            font-weight: 800;
+        }.ui-air .promo-subtitle {
+            font-size: 10px;
+            color: #335c49;
+            margin-bottom: 10px;
+        }.ui-air .promo-btn {
+            background-color: #004d2e;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            width: max-content;
+        }.ui-air .promo-artwork {
+            position: absolute;
+            right: -5px;
+            bottom: -5px;
+            width: 140px;
+            height: 110px;
+            z-index: 1;
+        }.ui-air .badge-ad {
+            position: absolute;
+            bottom: 4px;
+            left: 4px;
+            font-size: 8px;
+            color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1px 3px;
+            border-radius: 2px;
+            z-index: 10;
+            font-weight: 600;
+        }.ui-air .badge-18 {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            font-size: 8px;
+            color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1px 3px;
+            border-radius: 2px;
+            z-index: 10;
+            font-weight: 600;
+        }.ui-air .banner-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 10px;
+            z-index: 10;
+        }.ui-air .dot {
+            width: 4px;
+            height: 4px;
+            background-color: #ccece0;
+            border-radius: 50%;
+        }.ui-air .dot.active {
+            background-color: #00a86b;
+            width: 12px;
+            border-radius: 5px;
+        }.ui-air .user-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 20;
+        }.ui-air .user-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }.ui-air .mtn-logo {
+            width: 35px;
+            height: 35px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: black;
+            border: 2px solid #ffcc00;
+        }.ui-air .dropdown-arrow-up {
+            width: 0; 
+            height: 0; 
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid #00b875;
+        }.ui-air .phone-number {
+            font-size: 22px;
+            font-weight: 500;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }.ui-air .phone-number svg {
+            width: 16px;
+            height: 16px;
+            fill: #888;
+        }.ui-air .profile-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #00c881;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }.ui-air .divider {
+            height: 1px;
+            background-color: #f0f0f0;
+            margin: 0 20px;
+            position: relative;
+            z-index: 20;
+        }.ui-air .dropdown-modal {
+            margin: 0 15px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 30;
+            padding: 10px 0;
+        }.ui-air .network-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+        }.ui-air .network-item:hover {
+            background-color: #f9f9f9;
+        }.ui-air .network-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }.ui-air .network-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }.ui-air .icon-mtn { background-color: #ffcc00; color: black; border: 2px solid #ffcc00; }.ui-air .icon-airtel { background-color: #ff0000; color: white; font-size: 10px; }.ui-air .icon-glo { background-color: #00b050; color: white; font-style: italic; font-size: 14px; }.ui-air .icon-t2 { background-color: #ffffff; color: #ff6b00; border: 1px solid #eee; font-size: 14px; }.ui-air .network-name {
+            font-size: 16px;
+            color: #222;
+            font-weight: 500;
+        }.ui-air .radio-btn {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }.ui-air .radio-btn.checked {
+            border-color: #00b875;
+            background-color: #00b875;
+        }.ui-air .radio-btn.checked::after {
+            content: '';
+            width: 8px;
+            height: 4px;
+            border-left: 2px solid white;
+            border-bottom: 2px solid white;
+            transform: rotate(-45deg);
+            margin-bottom: 2px;
+        }.ui-air .background-content {
+            position: relative;
+            z-index: 1; 
+            padding-top: 30px;
+            transition: filter 0.3s ease;
+            pointer-events: none; 
+        }.ui-air .overlay {
+            position: absolute;
+            top: 180px; 
+            left: 0;
+            width: 100%;
+            height: calc(100% - 180px);
+            background-color: rgba(0, 0, 0, 0.55);
+            z-index: 15;
+        }.ui-air .amount-section {
+            padding: 0 20px;
+            margin-bottom: 40px;
+            position: relative;
+        }.ui-air .hundreds-tooltip {
+            background-color: #666;
+            color: white;
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            position: absolute;
+            top: -25px;
+            left: 40px;
+            z-index: 2;
+        }.ui-air .hundreds-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 4px 4px 0;
+            border-style: solid;
+            border-color: #666 transparent transparent transparent;
+        }.ui-air .input-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }.ui-air .input-field {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            color: #222;
+        }.ui-air .input-field span {
+            font-weight: 600;
+        }.ui-air .cursor-blink {
+            width: 2px;
+            height: 28px;
+            background-color: #00b875;
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            50% { opacity: 0; }
+        }.ui-air .pay-btn {
+            background-color: #005c36;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+        }.ui-air .more-events {
+            padding: 0 20px;
+        }.ui-air .more-events h3 {
+            font-size: 18px;
+            color: #222;
+            margin-bottom: 20px;
+        }.ui-air .event-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 25px;
+        }.ui-air .event-logo {
+            width: 50px;
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 3px;
+        }.ui-air .event-logo-ilot {
+            font-size: 10px;
+            font-weight: 800;
+            font-style: italic;
+            color: #005c2e;
+        }.ui-air .event-logo-voucher {
+            width: 30px;
+            height: 20px;
+            background: linear-gradient(135deg, #7b1fa2, #e91e63);
+            border-radius: 3px;
+            transform: rotate(-15deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }.ui-air .event-text h4 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }.ui-air .event-text p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        
+    
+/* ==== ui-data ==== */
+.ui-data * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }.ui-data {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }.ui-data .app-container {
+            width: 100%;
+            max-width: 414px;
+            background-color: #ffffff;
+            height: 100vh;
+            max-height: 896px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }.ui-data .app-container::-webkit-scrollbar {
+            display: none;
+        }.ui-data .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px 15px;
+            
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
+        }.ui-data .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #555;
+        }.ui-data .header-left svg {
+            width: 20px;
+            height: 20px;
+            fill: #555;
+        }.ui-data .header-right {
+            color: #00a86b;
+            font-size: 15px;
+            font-weight: 500;
+        }.ui-data .promo-banner {
+            margin: 0 20px;
+            background: #e3f6eb; 
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            height: 110px; 
+            display: flex;
+        }.ui-data .promo-logo {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #002b17;
+            z-index: 10;
+        }.ui-data .opay-circle {
+            width: 12px;
+            height: 12px;
+            background-color: #00b875;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }.ui-data .opay-circle::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+        }.ui-data .promo-content {
+            padding: 15px;
+            z-index: 2;
+            width: 65%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }.ui-data .promo-title {
+            font-size: 15px;
+            color: #002b17;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }.ui-data .promo-title strong {
+            color: #004d2e;
+            font-size: 16px;
+            font-weight: 800;
+        }.ui-data .promo-subtitle {
+            font-size: 10px;
+            color: #335c49;
+            margin-bottom: 10px;
+        }.ui-data .promo-btn {
+            background-color: #004d2e;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            width: max-content;
+            cursor: pointer;
+        }.ui-data .promo-artwork {
+            position: absolute;
+            right: -5px;
+            bottom: -5px;
+            width: 140px;
+            height: 110px;
+            z-index: 1;
+        }.ui-data .badge-ad {
+            position: absolute;
+            bottom: 4px;
+            left: 4px;
+            font-size: 8px;
+            color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1px 3px;
+            border-radius: 2px;
+            z-index: 10;
+            font-weight: 600;
+        }.ui-data .badge-18 {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            font-size: 8px;
+            color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1px 3px;
+            border-radius: 2px;
+            z-index: 10;
+            font-weight: 600;
+        }.ui-data .banner-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 10px;
+        }.ui-data .dot {
+            width: 4px;
+            height: 4px;
+            background-color: #ccc;
+            border-radius: 50%;
+        }.ui-data .dot.active {
+            background-color: #00a86b;
+            width: 12px;
+            border-radius: 5px;
+        }.ui-data .user-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }.ui-data .user-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }.ui-data .mtn-logo {
+            width: 30px;
+            height: 30px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: black;
+        }.ui-data .phone-number {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }.ui-data .phone-number svg {
+            width: 14px;
+            height: 14px;
+            fill: #888;
+        }.ui-data .profile-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #00c881;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }.ui-data .ussd-banner {
+            margin: 20px 15px 0;
+            background: linear-gradient(135deg, #00c881 0%, #00a86b 100%);
+            border-radius: 15px 15px 0 0;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            position: relative;
+        }.ui-data .ussd-banner p.top-text {
+            font-size: 13px;
+            margin-bottom: 5px;
+        }.ui-data .ussd-banner h2 {
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }.ui-data .ussd-code {
+            background-color: #4b0082;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 18px;
+        }.ui-data .plans-container {
+            background-color: #ffffff;
+            border-radius: 20px 20px 0 0;
+            margin-top: -15px;
+            position: relative;
+            padding: 20px 15px;
+            min-height: 500px;
+        }.ui-data .plans-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }.ui-data .plans-header h2 {
+            font-size: 18px;
+            color: #333;
+        }.ui-data .view-toggles {
+            display: flex;
+            gap: 10px;
+            color: #00a86b;
+        }.ui-data .view-toggles svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            opacity: 0.5;
+        }.ui-data .view-toggles svg.active {
+            opacity: 1;
+        }.ui-data .tabs {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            scrollbar-width: none;
+        }.ui-data .tabs::-webkit-scrollbar {
+            display: none;
+        }.ui-data .tab {
+            font-size: 14px;
+            font-weight: 500;
+            color: #888;
+            white-space: nowrap;
+            padding-bottom: 5px;
+            cursor: pointer;
+        }.ui-data .tab.active {
+            color: #00a86b;
+            border-bottom: 3px solid #00a86b;
+        }.ui-data .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }.ui-data .plan-card {
+            background-color: #f7f9fc;
+            border-radius: 12px;
+            padding: 15px 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid transparent;
+            transition: 0.2s;
+        }.ui-data .plan-card:hover {
+            border-color: #00a86b;
+            box-shadow: 0 4px 10px rgba(0,168,107,0.1);
+        }.ui-data .plan-data {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 5px;
+        }.ui-data .plan-duration {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 10px;
+        }.ui-data .plan-price {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }.ui-data .plan-cashback {
+            font-size: 12px;
+            color: #00a86b;
+            font-weight: 500;
+        }.ui-data .plan-badge {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff4d2;
+            color: #b37c00;
+            font-size: 10px;
+            padding: 4px 0;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2px;
+        }.ui-data .plan-badge svg {
+            width: 10px;
+            height: 10px;
+            fill: #b37c00;
+        }.ui-data .has-badge {
+            padding-bottom: 25px;
+        }
+    
+/* ==== ui-bet ==== */
+.ui-bet * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }.ui-bet {
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }.ui-bet .app-container {
+            width: 100%;
+            max-width: 414px;
+            background-color: #ffffff;
+            height: 100vh;
+            max-height: 896px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }.ui-bet .app-container::-webkit-scrollbar {
+            display: none;
+        }.ui-bet .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 100;
+        }.ui-bet .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #333;
+        }.ui-bet .header-left svg {
+            width: 20px;
+            height: 20px;
+            fill: #555;
+        }.ui-bet .header-right {
+            color: #00b875;
+            font-size: 15px;
+            font-weight: 600;
+        }.ui-bet .hot-offers-section {
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }.ui-bet .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding: 0 5px;
+        }.ui-bet .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }.ui-bet .section-title span.fire {
+            font-size: 18px;
+        }.ui-bet .section-link {
+            font-size: 13px;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }.ui-bet .tag-70 {
+            background-color: #e8f7f0;
+            color: #00b875;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 12px;
+        }.ui-bet .offers-layout {
+            display: flex;
+            gap: 10px;
+            height: 130px;
+        }.ui-bet .ad-banner-left {
+            flex: 1.5;
+            background: linear-gradient(135deg, #e6f0fa 0%, #d0e4f7 100%);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }.ui-bet .ad-logo {
+            font-size: 10px;
+            font-weight: 800;
+            font-style: italic;
+            color: #1a1a1a;
+            background: white;
+            padding: 2px 6px;
+            border-radius: 10px;
+            width: max-content;
+            margin-bottom: 4px;
+            z-index: 2;
+        }.ui-bet .ad-opay-logo {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            font-size: 9px;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            z-index: 2;
+        }.ui-bet .opay-circle {
+            width: 8px;
+            height: 8px;
+            background-color: #00b875;
+            border-radius: 50%;
+        }.ui-bet .ad-text {
+            font-size: 12px;
+            font-weight: 800;
+            color: #3b1d75;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            z-index: 2;
+            width: 60%;
+        }.ui-bet .ad-btn {
+            background-color: #3b1d75;
+            color: white;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 15px;
+            width: max-content;
+            z-index: 2;
+        }.ui-bet .ad-artwork {
+            position: absolute;
+            bottom: -15px; 
+            right: -5px;
+            width: 120px;
+            height: 130px;
+            z-index: 1;
+            
+            background-image: url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80');
+            background-size: cover;
+            background-position: center top;
+            
+            -webkit-mask-image: linear-gradient(to top, transparent 0%, black 20%);
+            mask-image: linear-gradient(to top, transparent 0%, black 20%);
+            mix-blend-mode: multiply; 
+            opacity: 0.9;
+        }.ui-bet .ad-badge {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            font-size: 7px;
+            color: #888;
+            font-weight: 700;
+            z-index: 2;
+        }.ui-bet .voucher-card {
+            flex: 1;
+            background-color: #f5fbf8;
+            border: 1px solid #e0f2e9;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 10px;
+        }.ui-bet .voucher-amount {
+            font-size: 22px;
+            font-weight: 800;
+            color: #00b875;
+            margin-bottom: 4px;
+        }.ui-bet .voucher-text {
+            font-size: 10px;
+            color: #444;
+            margin-bottom: 10px;
+            text-align: center;
+        }.ui-bet .voucher-divider {
+            width: 100%;
+            border-top: 1px dashed #d0e8de;
+            position: absolute;
+            top: 55%;
+        }.ui-bet .voucher-btn {
+            background-color: transparent;
+            color: #00b875;
+            border: 1px solid #00b875;
+            padding: 4px 16px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+            background-color: #f5fbf8;
+        }.ui-bet .banner-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 10px;
+        }.ui-bet .dot {
+            width: 12px;
+            height: 3px;
+            background-color: #e0e0e0;
+            border-radius: 2px;
+        }.ui-bet .dot.active {
+            background-color: #555;
+            width: 16px;
+        }.ui-bet .background-ad {
+            margin: 0 15px;
+            height: 60px;
+            background-color: #e6f0fa;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            position: relative;
+            overflow: hidden;
+        }.ui-bet .bg-ad-logo {
+            font-size: 9px;
+            font-weight: 800;
+            font-style: italic;
+            color: #1a1a1a;
+            background: white;
+            padding: 2px 4px;
+            border-radius: 8px;
+            margin-right: 10px;
+        }.ui-bet .bg-ad-text {
+            font-size: 12px;
+            font-weight: 800;
+            color: #3b1d75;
+        }.ui-bet .bg-ad-btn {
+            background-color: #3b1d75;
+            color: white;
+            font-size: 9px;
+            padding: 4px 8px;
+            border-radius: 10px;
+            margin-left: auto;
+            margin-right: 40px;
+        }.ui-bet .bg-ad-opay {
+            position: absolute;
+            right: 15px;
+            font-size: 9px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }.ui-bet .main-sheet {
+            background-color: #ffffff;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            z-index: 10;
+            margin-top: -15px;
+            padding: 20px 15px;
+            min-height: 500px;
+        }.ui-bet .tabs-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }.ui-bet .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            cursor: pointer;
+        }.ui-bet .tab-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+        }.ui-bet .tab-name {
+            font-size: 12px;
+            color: #333;
+            font-weight: 500;
+        }.ui-bet .tab-item.active .tab-icon {
+            background-color: #fff0f0;
+            color: #e51e25;
+        }.ui-bet .tab-item.active .tab-name {
+            font-weight: 600;
+        }.ui-bet .tab-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            width: 30px;
+            height: 3px;
+            background-color: #00b875;
+            border-radius: 2px;
+        }.ui-bet .icon-sporty { background-color: #e51e25; font-size: 24px; font-family: serif; }.ui-bet .icon-ilot { background-color: #111; font-size: 9px; }.ui-bet .icon-1x { background-color: #0d5c9e; font-size: 12px; }.ui-bet .icon-more { background-color: #fff; border: 1px solid #ccc; color: #ccc; font-size: 24px; line-height: 1;}.ui-bet .input-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            display: block;
+        }.ui-bet .user-id-box {
+            background-color: #f8f9fc;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border: 1px solid #f0f0f0;
+        }.ui-bet .user-id-box span {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222;
+        }.ui-bet .user-id-box svg {
+            width: 16px;
+            height: 16px;
+            fill: #888;
+        }.ui-bet .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }.ui-bet .amount-card {
+            background-color: #f8f9fc;
+            border-radius: 10px;
+            padding: 15px 5px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 70px;
+        }.ui-bet .amount-card:hover {
+            border-color: #00b875;
+        }.ui-bet .amount-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+        }.ui-bet .amount-value span {
+            font-size: 12px;
+            font-weight: 500;
+            margin-right: 2px;
+        }.ui-bet .amount-discount {
+            font-size: 11px;
+            color: #00b875;
+            font-weight: 600;
+            margin-top: 5px;
+        }.ui-bet .custom-amount-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 25px;
+        }.ui-bet .custom-input {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }.ui-bet .custom-input .currency {
+            font-size: 18px;
+            font-weight: 700;
+            color: #333;
+        }.ui-bet .custom-input input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+            width: 100%;
+            background: transparent;
+        }.ui-bet .custom-input input::placeholder {
+            color: #ccc;
+            font-weight: 500;
+        }.ui-bet .pay-btn {
+            background-color: #b3ebd6;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            pointer-events: none;
+        }.ui-bet .more-events-section {
+            padding-top: 10px;
+        }.ui-bet .event-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f8f8f8;
+        }.ui-bet .event-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #005c2e;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffd700;
+        }.ui-bet .event-icon svg {
+            width: 25px;
+            height: 25px;
+            fill: currentColor;
+        }.ui-bet .event-details h4 {
+            font-size: 14px;
+            color: #222;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }.ui-bet .event-details p {
+            font-size: 12px;
+            color: #777;
+        }
+    
+/* ==== ui-conf ==== */
+.ui-conf * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }.ui-conf {
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }.ui-conf .app-container {
+            width: 100%;
+            max-width: 414px;
+            background-color: #ffffff;
+            height: 100vh;
+            max-height: 896px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            overflow: hidden; 
+        }.ui-conf .background-layer {
+            height: 100%;
+            overflow-y: auto;
+            position: relative;
+        }.ui-conf .background-layer::-webkit-scrollbar {
+            display: none;
+        }.ui-conf .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px 15px;
+            position: sticky;
+            top: 0;
+            background-color: #ffffff;
+            z-index: 10;
+        }.ui-conf .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #555;
+        }.ui-conf .header-left svg {
+            width: 20px;
+            height: 20px;
+            fill: #555;
+        }.ui-conf .header-right {
+            color: #00a86b;
+            font-size: 15px;
+            font-weight: 500;
+        }.ui-conf .promo-banner {
+            margin: 0 20px;
+            background: #e3f6eb; 
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            height: 110px; 
+            display: flex;
+        }.ui-conf .promo-logo {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #002b17;
+            z-index: 10;
+        }.ui-conf .opay-circle {
+            width: 12px;
+            height: 12px;
+            background-color: #00b875;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }.ui-conf .opay-circle::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background-color: white;
+            border-radius: 50%;
+        }.ui-conf .promo-content {
+            padding: 15px;
+            z-index: 2;
+            width: 65%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }.ui-conf .promo-title {
+            font-size: 15px;
+            color: #002b17;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }.ui-conf .promo-title strong {
+            color: #004d2e;
+            font-size: 16px;
+            font-weight: 800;
+        }.ui-conf .promo-subtitle {
+            font-size: 10px;
+            color: #335c49;
+            margin-bottom: 10px;
+        }.ui-conf .promo-btn {
+            background-color: #004d2e;
+            color: white;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            width: max-content;
+        }.ui-conf .promo-artwork {
+            position: absolute;
+            right: -5px;
+            bottom: -5px;
+            width: 140px;
+            height: 110px;
+            z-index: 1;
+        }.ui-conf .badge-ad {
+            position: absolute;
+            bottom: 4px;
+            left: 4px;
+            font-size: 8px;
+            color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1px 3px;
+            border-radius: 2px;
+            z-index: 10;
+            font-weight: 600;
+        }.ui-conf .badge-18 {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            font-size: 8px;
+            color: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            padding: 1px 3px;
+            border-radius: 2px;
+            z-index: 10;
+            font-weight: 600;
+        }.ui-conf .banner-dots {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 10px;
+        }.ui-conf .dot {
+            width: 4px;
+            height: 4px;
+            background-color: #ccc;
+            border-radius: 50%;
+        }.ui-conf .dot.active {
+            background-color: #00a86b;
+            width: 12px;
+            border-radius: 5px;
+        }.ui-conf .user-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+        }.ui-conf .user-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }.ui-conf .mtn-logo {
+            width: 30px;
+            height: 30px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 10px;
+            font-weight: bold;
+            color: black;
+        }.ui-conf .phone-number {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }.ui-conf .phone-number svg {
+            width: 14px;
+            height: 14px;
+            fill: #888;
+        }.ui-conf .profile-icon {
+            width: 35px;
+            height: 35px;
+            background-color: #00c881;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }.ui-conf .ussd-banner {
+            margin: 20px 15px 0;
+            background: linear-gradient(135deg, #00c881 0%, #00a86b 100%);
+            border-radius: 15px;
+            padding: 15px;
+            color: white;
+            position: relative;
+        }.ui-conf .ussd-banner p.top-text {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }.ui-conf .ussd-banner h2 {
+            font-size: 22px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }.ui-conf .ussd-code {
+            background-color: #4b0082;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 18px;
+        }.ui-conf .star-graphic {
+            position: absolute;
+            top: -5px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background-color: #ffeb3b;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }.ui-conf .top-up-text {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }.ui-conf .overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 50;
+        }.ui-conf .bottom-sheet {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 24px 24px 0 0;
+            z-index: 100;
+            padding: 20px 24px 30px;
+            display: flex;
+            flex-direction: column;
+        }.ui-conf .sheet-header {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }.ui-conf .close-btn {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #777;
+            padding: 5px;
+        }.ui-conf .close-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }.ui-conf .total-amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: #111;
+        }.ui-conf .details-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }.ui-conf .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }.ui-conf .detail-label {
+            color: #888;
+        }.ui-conf .detail-value {
+            color: #111;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }.ui-conf .mtn-mini {
+            width: 20px;
+            height: 20px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 7px;
+            font-weight: bold;
+        }.ui-conf .cashback-row .detail-label {
+            color: #aaa; 
+        }.ui-conf .cashback-value {
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }.ui-conf .toggle-switch {
+            width: 36px;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            position: relative;
+        }.ui-conf .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 16px;
+            height: 16px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }.ui-conf .opay-bonus-badge {
+            border: 1px solid #00b875;
+            color: #00b875;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }.ui-conf .payment-method-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }.ui-conf .payment-method-title {
+            font-size: 15px;
+            color: #333;
+        }.ui-conf .payment-method-all {
+            font-size: 13px;
+            color: #888;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }.ui-conf .payment-card {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 25px;
+        }.ui-conf .card-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }.ui-conf .card-balance {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }.ui-conf .info-icon {
+            width: 14px;
+            height: 14px;
+            fill: #aaa;
+        }.ui-conf .check-icon {
+            width: 18px;
+            height: 18px;
+            fill: #00b875;
+        }.ui-conf .card-divider {
+            border-bottom: 1px dashed #dcdcdc;
+            margin-bottom: 12px;
+        }.ui-conf .card-sub-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+        }.ui-conf .card-sub-row:last-child {
+            margin-bottom: 0;
+        }.ui-conf .pay-btn {
+            background-color: #00c881;
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            cursor: pointer;
+        }
+
+    
+/* ==== ui-me ==== */
+.ui-me * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }.ui-me {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }.ui-me .app-container {
+            width: 100%;
+            max-width: 414px;
+            background-color: #f4f6f8;
+            height: 100vh;
+            max-height: 896px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }.ui-me .top-section {
+            background: linear-gradient(180deg, #e2f7ed 0%, #eef8f4 60%, #f4f6f8 100%);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding-bottom: 20px;
+            
+        }.ui-me .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+        }.ui-me .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }.ui-me .avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #111;
+            border-radius: 50%;
+        }.ui-me .user-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }.ui-me .greeting {
+            font-size: 18px;
+            font-weight: 600;
+            color: #111;
+        }.ui-me .upgrade-pill {
+            background-color: #ffeee8;
+            color: #d16935;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            width: max-content;
+        }.ui-me .settings-icon {
+            position: relative;
+        }.ui-me .settings-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: #111;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }.ui-me .red-dot {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            background-color: #ff3b30;
+            border-radius: 50%;
+            border: 1.5px solid #e2f7ed;
+        }.ui-me .balance-container {
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+        }.ui-me .balance-left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 2;
+        }.ui-me .balance-label {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }.ui-me .eye-icon {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: #333;
+            stroke-width: 2;
+            cursor: pointer;
+        }.ui-me .balance-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111;
+            letter-spacing: 2px;
+        }.ui-me .interest-pill {
+            background-color: #ffffff;
+            color: #333;
+            font-size: 12px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            width: max-content;
+            margin-top: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }.ui-me .interest-pill span {
+            color: #00b875;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }.ui-me .shield-graphic {
+            position: absolute;
+            right: 10px;
+            top: -20px;
+            width: 90px;
+            height: 90px;
+            z-index: 1;
+        }.ui-me .shield-graphic svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 15px rgba(0, 210, 106, 0.4));
+        }.ui-me .content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 90px; 
+            position: relative;
+            z-index: 10;
+        }.ui-me .content-area::-webkit-scrollbar {
+            display: none;
+        }.ui-me .security-banner {
+            background-color: #00d26a;
+            border-radius: 12px;
+            margin: -10px 15px 15px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 210, 106, 0.2);
+            position: relative;
+            z-index: 20;
+        }.ui-me .banner-left {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }.ui-me .banner-icon {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            margin-top: 2px;
+        }.ui-me .banner-text h4 {
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }.ui-me .banner-text p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            line-height: 1.3;
+        }.ui-me .turn-on-btn {
+            background-color: white;
+            color: #00a854;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }.ui-me .card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            margin: 0 15px 15px;
+            padding: 5px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }.ui-me .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+        }.ui-me .list-item:hover {
+            background-color: #fcfcfc;
+        }.ui-me .item-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }.ui-me .item-icon {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #00b875;
+        }.ui-me .item-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: currentColor;
+        }.ui-me .item-text {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }.ui-me .item-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+        }.ui-me .item-subtitle {
+            font-size: 12px;
+            color: #888;
+        }.ui-me .item-arrow {
+            width: 16px;
+            height: 16px;
+            fill: #999;
+        }.ui-me .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+        }.ui-me .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #888;
+            cursor: pointer;
+        }.ui-me .nav-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }.ui-me .nav-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }.ui-me .nav-text {
+            font-size: 10px;
+            font-weight: 500;
+        }.ui-me .nav-item.active {
+            color: #00b875;
+        }.ui-me .nav-item.active .nav-icon {
+            background-color: #00b875;
+            border-radius: 50%;
+            padding: 4px;
+            width: 26px;
+            height: 26px;
+            color: white;
+        }.ui-me .nav-item.active .nav-icon svg {
+            stroke-width: 2.5;
+            fill: white;
+            stroke: white;
+        }.ui-me .nav-item.active .nav-icon svg path {
+            stroke: none;
+        }
+
+    
+/* ==== ui-amt ==== */
+.ui-amt * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }.ui-amt {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }.ui-amt .app-container {
+            width: 100%;
+            max-width: 414px;
+            background-color: #f7f9fa; 
+            height: 100vh;
+            max-height: 896px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }.ui-amt .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            background-color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }.ui-amt .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #333;
+            font-weight: 400;
+        }.ui-amt .header-left svg {
+            width: 20px;
+            height: 20px;
+            fill: #333;
+            cursor: pointer;
+        }.ui-amt .header-right {
+            color: #00b875;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }.ui-amt .content-area {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 100px; 
+        }.ui-amt .content-area::-webkit-scrollbar {
+            display: none;
+        }.ui-amt .recipient-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: #f4f6f8; 
+        }.ui-amt .avatar-placeholder {
+            width: 50px;
+            height: 50px;
+            background-color: #e6e9ec;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a0aab2;
+        }.ui-amt .avatar-placeholder svg {
+            width: 30px;
+            height: 30px;
+            fill: currentColor;
+            margin-top: 5px;
+        }.ui-amt .recipient-info {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }.ui-amt .recipient-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #222;
+        }.ui-amt .recipient-phone {
+            font-size: 14px;
+            color: #888;
+        }.ui-amt .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            margin: 15px;
+            padding: 20px;
+            position: relative;
+        }.ui-amt .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }.ui-amt .no-fees-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #d1f5e4;
+            color: #008a56;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 12px;
+        }.ui-amt .amount-input-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }.ui-amt .naira-symbol {
+            font-size: 24px;
+            font-weight: 500;
+            color: #333;
+            text-decoration: line-through; 
+        }.ui-amt .cursor {
+            width: 2px;
+            height: 24px;
+            background-color: #00b875;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }.ui-amt .amount-placeholder {
+            font-size: 22px;
+            color: #c2c2c2;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }.ui-amt .amount-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }.ui-amt .amount-btn {
+            background-color: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            padding: 15px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s;
+        }.ui-amt .amount-btn:hover {
+            background-color: #f0f2f5;
+        }.ui-amt .remark-card {
+            padding: 20px;
+        }.ui-amt .remark-input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 14px;
+            color: #333;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 15px;
+        }.ui-amt .remark-input::placeholder {
+            color: #b0b0b0;
+        }.ui-amt .remark-tags {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }.ui-amt .remark-tag {
+            background-color: #f8f9fa;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 0;
+            font-size: 14px;
+            color: #555;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s;
+        }.ui-amt .remark-tag:hover {
+            background-color: #f0f2f5;
+        }.ui-amt .bottom-action {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 20px 25px;
+            background-color: #f7f9fa; 
+            z-index: 10;
+        }.ui-amt .confirm-btn {
+            width: 100%;
+            background-color: #a4e5c6; 
+            color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            padding: 18px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: not-allowed; 
+        }
+
+    
+/* ==== ui-to ==== */
+.ui-to * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }.ui-to {
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }.ui-to .app-container {
+            width: 100%;
+            max-width: 414px;
+            background-color: #f8f9fa; 
+            height: 100vh;
+            max-height: 896px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }.ui-to .app-container::-webkit-scrollbar {
+            display: none;
+        }.ui-to .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 20px;
+            position: sticky;
+            top: 0;
+            background-color: #f8f9fa;
+            z-index: 100;
+        }.ui-to .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 18px;
+            color: #333;
+        }.ui-to .header-left svg {
+            width: 20px;
+            height: 20px;
+            fill: #555;
+            cursor: pointer;
+        }.ui-to .header-right {
+            color: #00b875;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }.ui-to .content-wrapper {
+            padding: 0 15px 30px;
+        }.ui-to .ad-banner {
+            background-color: #e6f9f0;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            padding: 15px;
+            min-height: 120px;
+            margin-bottom: 15px;
+        }.ui-to .ad-top-logos {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 8px;
+        }.ui-to .bangbet-logo {
+            background-color: #00c853;
+            color: white;
+            font-size: 8px;
+            font-weight: 900;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-style: italic;
+        }.ui-to .opay-logo-small {
+            font-size: 10px;
+            font-weight: 700;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }.ui-to .opay-circle-small {
+            width: 8px;
+            height: 8px;
+            background-color: #00b875;
+            border-radius: 50%;
+        }.ui-to .ad-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 4px;
+            line-height: 1.2;
+            z-index: 2;
+            position: relative;
+        }.ui-to .ad-title span {
+            color: #00d26a;
+        }.ui-to .ad-subtitle {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 10px;
+            z-index: 2;
+            position: relative;
+        }.ui-to .ad-btn {
+            background-color: #00d26a;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px;
+            width: max-content;
+            z-index: 2;
+            position: relative;
+            cursor: pointer;
+        }.ui-to .ad-artwork {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 140px;
+            height: 110px;
+            z-index: 1;
+        }.ui-to .ad-badge-18 {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 8px;
+            color: #333;
+            background: white;
+            padding: 1px 4px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            z-index: 10;
+        }.ui-to .ad-badge-ad {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            font-size: 8px;
+            color: #888;
+            font-weight: 600;
+            z-index: 10;
+        }.ui-to .ad-dots {
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }.ui-to .dot {
+            width: 4px;
+            height: 4px;
+            background-color: #ccece0;
+            border-radius: 50%;
+        }.ui-to .dot.active {
+            background-color: #00b875;
+            width: 10px;
+            border-radius: 3px;
+        }.ui-to .instant-banner {
+            background-color: #e6f9f0;
+            border-radius: 10px;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }.ui-to .instant-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #00d26a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }.ui-to .instant-icon svg {
+            width: 12px;
+            height: 12px;
+            fill: white;
+        }.ui-to .instant-text {
+            color: #00b875;
+            font-size: 14px;
+            font-weight: 500;
+        }.ui-to .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }.ui-to .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 15px;
+        }.ui-to .input-box {
+            background-color: #f5f6f8;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }.ui-to .input-box input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+            width: 100%;
+            color: #333;
+        }.ui-to .input-box input::placeholder {
+            color: #aaa;
+        }.ui-to .scan-icon {
+            width: 20px;
+            height: 20px;
+            fill: #aaa;
+            cursor: pointer;
+        }.ui-to .help-text {
+            font-size: 13px;
+            color: #777;
+        }.ui-to .help-text a {
+            color: #00b875;
+            text-decoration: none;
+            font-weight: 600;
+        }.ui-to .tabs {
+            display: flex;
+            justify-content: space-around;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+        }.ui-to .tab {
+            font-size: 16px;
+            color: #777;
+            font-weight: 500;
+            padding-bottom: 8px;
+            cursor: pointer;
+        }.ui-to .tab.active {
+            color: #00b875;
+            border-bottom: 3px solid #00b875;
+        }.ui-to .contact-list {
+            display: flex;
+            flex-direction: column;
+        }.ui-to .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f8f9fa;
+            cursor: pointer;
+        }.ui-to .contact-item:last-child {
+            border-bottom: none;
+        }.ui-to .avatar-container {
+            position: relative;
+            width: 45px;
+            height: 45px;
+        }.ui-to .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #e0e0e0;
+        }.ui-to .avatar-placeholder {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }.ui-to .avatar-placeholder svg {
+            width: 30px;
+            height: 30px;
+            fill: #fff;
+            margin-top: 10px;
+        }.ui-to .biz-badge {
+            position: absolute;
+            bottom: -2px;
+            right: -5px;
+            background-color: #00d26a;
+            color: white;
+            font-size: 7px;
+            font-weight: 700;
+            padding: 2px 4px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }.ui-to .contact-info {
+            flex: 1;
+        }.ui-to .contact-name {
+            font-size: 15px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 4px;
+        }.ui-to .contact-phone {
+            font-size: 13px;
+            color: #888;
+        }.ui-to .view-all-btn {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            padding: 15px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }.ui-to .view-all-btn svg {
+            width: 12px;
+            height: 12px;
+            fill: #888;
+        }.ui-to .opay-banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }.ui-to .opay-banner-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }.ui-to .opay-banner-icon {
+            width: 45px;
+            height: 45px;
+            background-color: #e6f9f0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }.ui-to .opay-banner-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: #00b875;
+        }.ui-to .opay-banner-text h4 {
+            font-size: 15px;
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 4px;
+        }.ui-to .opay-banner-text p {
+            font-size: 13px;
+            color: #888;
+        }.ui-to .opay-banner-arrow svg {
+            width: 16px;
+            height: 16px;
+            fill: #ccc;
+        }.ui-to .more-events-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            padding: 10px 5px;
+        }.ui-to .event-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }.ui-to .event-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #fff0ed;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ff6b4a;
+            font-size: 20px;
+        }.ui-to .event-text h4 {
+            font-size: 14px;
+            color: #222;
+            margin-bottom: 4px;
+        }.ui-to .event-text p {
+            font-size: 12px;
+            color: #888;
+        }
+
+    
+/* ---- de-frame mockups for live use ---- */
+.ui-air,.ui-data,.ui-bet,.ui-conf,.ui-me,.ui-amt,.ui-to{display:block!important;min-height:100vh;background:transparent!important;align-items:initial!important;justify-content:initial!important}
+.ui-air .app-container,.ui-data .app-container,.ui-bet .app-container,.ui-me .app-container,.ui-amt .app-container,.ui-to .app-container{max-width:none!important;height:auto!important;max-height:none!important;min-height:100vh;box-shadow:none!important;overflow:visible!important}
+.ui-air .scrollable-content{height:auto!important;overflow:visible!important}
+.ui-air .app-container{padding-bottom:4rem}
+.ui-air .overlay{position:fixed!important;top:180px!important;height:calc(100vh - 180px)!important;left:0;right:0;width:auto!important}
+.ui-me .item-icon svg{fill:none!important;stroke:#00b875;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.ui-conf .bottom-sheet{position:relative!important;width:100%!important}
+.ui-conf .toggle-switch.on{background:#00b875!important}
+.ui-conf .toggle-switch.on::after{left:auto!important;right:2px!important}
+
+/* ==== ui-bank (Transfer to Bank) ==== */
+.ui-bank{display:block;background:#f7f9fa;min-height:100vh}
+.ui-bank *{box-sizing:border-box}
+.ui-bank .header{display:flex;justify-content:space-between;align-items:center;padding:20px;background:#fff;position:sticky;top:0;z-index:100}
+.ui-bank .header-left{display:flex;align-items:center;gap:15px;font-size:18px;color:#333;cursor:pointer}
+.ui-bank .header-left svg{width:20px;height:20px;fill:#333}
+.ui-bank .header-right{color:#00b875;font-size:15px;font-weight:600;cursor:pointer}
+.ui-bank .main-content{padding:15px;display:flex;flex-direction:column;gap:15px}
+.ui-bank .ad-banner{background:#003b22;border-radius:12px;position:relative;overflow:hidden;padding:15px;height:110px;display:flex;flex-direction:column;justify-content:space-between}
+.ui-bank .ad-top{display:flex;justify-content:space-between;align-items:flex-start;z-index:2}
+.ui-bank .ilotbet-logo{background:#fff;color:#003b22;font-size:9px;font-weight:900;padding:2px 6px;border-radius:10px;font-style:italic}
+.ui-bank .ilotbet-logo span{color:#00b875;margin-left:2px}
+.ui-bank .opay-logo{background:#fff;color:#333;font-size:10px;font-weight:700;padding:2px 6px;border-radius:10px;display:flex;align-items:center;gap:3px}
+.ui-bank .opay-dot{width:8px;height:8px;background:#00b875;border-radius:50%}
+.ui-bank .ad-text{color:#fff;font-size:15px;font-weight:700;line-height:1.2;z-index:2;max-width:60%}
+.ui-bank .claim-btn{background:#fff;color:#111;padding:6px 16px;border-radius:20px;font-size:11px;font-weight:600;width:max-content;z-index:2}
+.ui-bank .ad-artwork{position:absolute;right:-10px;top:0;width:160px;height:100%;z-index:1}
+.ui-bank .ad-bottom{position:absolute;left:15px;right:15px;bottom:8px;display:flex;justify-content:space-between;z-index:2}
+.ui-bank .badge-18{font-size:8px;color:#fff;border:1px solid rgba(255,255,255,.5);border-radius:2px;padding:0 3px}
+.ui-bank .badge-ad{font-size:8px;color:#aaa;font-weight:600}
+.ui-bank .dots{display:flex;gap:4px;position:absolute;bottom:10px;left:50%;transform:translateX(-50%)}
+.ui-bank .dot{width:4px;height:4px;background:rgba(255,255,255,.3);border-radius:50%}
+.ui-bank .dot.active{background:#00b875;width:12px;border-radius:4px}
+.ui-bank .free-transfer-banner{background:#f3e8ff;border-radius:10px;padding:15px;display:flex;align-items:center;gap:10px;color:#7b3fe4;font-size:14px;font-weight:500}
+.ui-bank .free-transfer-banner svg{width:18px;height:18px;fill:#7b3fe4}
+.ui-bank .free-transfer-banner span{font-weight:700}
+.ui-bank .card{background:#fff;border-radius:12px;padding:20px;box-shadow:none}
+.ui-bank .card-title{font-size:16px;font-weight:600;color:#111;margin-bottom:20px}
+.ui-bank .input-field{border-bottom:1px solid #f0f0f0;padding:15px 0;font-size:15px;color:#333;display:flex;justify-content:space-between;align-items:center}
+.ui-bank .input-field input{border:none;outline:none;font-size:15px;width:100%;background:transparent}
+.ui-bank .select-bank{cursor:pointer}
+.ui-bank .select-bank svg{width:16px;height:16px;fill:none;stroke:#b0b0b0;stroke-width:2}
+.ui-bank .next-btn{background:#a4e5c6;color:#fff;border:none;border-radius:25px;padding:16px;width:100%;font-size:16px;font-weight:600;margin-top:25px}
+.ui-bank .next-btn.on{background:#00b875}
+.ui-bank .monitor-card{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;cursor:pointer}
+.ui-bank .monitor-left{display:flex;align-items:center;gap:12px}
+.ui-bank .monitor-icon{width:28px;height:28px;background:#e6f9f0;border-radius:50%;display:flex;justify-content:center;align-items:center;color:#00b875}
+.ui-bank .monitor-text{font-size:14px;font-weight:600;color:#222}
+.ui-bank .list-card{padding:20px 0 0}
+.ui-bank .list-header{display:flex;justify-content:space-between;align-items:center;padding:0 20px;margin-bottom:10px}
+.ui-bank .tabs{display:flex;gap:25px}
+.ui-bank .tab{font-size:16px;color:#888;font-weight:500;padding-bottom:8px;cursor:pointer}
+.ui-bank .tab.active{color:#00b875;border-bottom:3px solid #00b875}
+.ui-bank .list-item{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-bottom:1px solid #f5f5f5;cursor:pointer}
+.ui-bank .list-item:last-child{border-bottom:none}
+.ui-bank .item-info{display:flex;flex-direction:column;gap:6px;max-width:80%}
+.ui-bank .item-name{font-size:15px;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ui-bank .item-details{font-size:13px;color:#888}
+.ui-bank .bank-logo{width:40px;height:40px;border-radius:50%;display:flex;justify-content:center;align-items:center;color:#fff;font-weight:700;font-size:16px}
