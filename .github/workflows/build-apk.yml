@@ -40,13 +40,18 @@ jobs:
         with:
           packages: 'platform-tools platforms;android-34 build-tools;34.0.0'
 
-      - name: Prepare Capacitor Android project
+      - name: Prepare Capacitor Android project and brand icon
         shell: bash
         run: |
           set -euo pipefail
 
           if [ ! -d "www" ] || [ ! -f "www/index.html" ]; then
             echo "Expected the web app at www/index.html, but it was not found."
+            exit 1
+          fi
+
+          if [ ! -f "www/icons/icon-512.png" ]; then
+            echo "Your OPay icon was not found at www/icons/icon-512.png."
             exit 1
           fi
 
@@ -57,7 +62,9 @@ jobs:
           npm install --no-save --no-audit --no-fund \
             @capacitor/core@6 \
             @capacitor/cli@6 \
-            @capacitor/android@6
+            @capacitor/android@6 \
+            @capacitor/assets \
+            sharp
 
           if [ ! -f "capacitor.config.json" ] && \
              [ ! -f "capacitor.config.ts" ] && \
@@ -77,6 +84,27 @@ jobs:
           fi
 
           npx cap sync android
+
+          # Use the existing OPay PWA icon as the source for native Android icons.
+          # Capacitor Assets expects a 1024px source; upscale the repository's
+          # 512px icon without changing its artwork.
+          mkdir -p assets
+          node <<'NODE'
+          const sharp = require('sharp');
+          sharp('www/icons/icon-512.png')
+            .resize(1024, 1024, { fit: 'contain' })
+            .png()
+            .toFile('assets/logo.png')
+            .then(() => console.log('Prepared OPay logo for Android icon generation.'))
+            .catch((error) => {
+              console.error(error);
+              process.exit(1);
+            });
+          NODE
+
+          npx capacitor-assets generate --android \
+            --iconBackgroundColor '#FFFFFF' \
+            --splashBackgroundColor '#FFFFFF'
 
       - name: Apply portrait and immersive fullscreen settings
         shell: bash
