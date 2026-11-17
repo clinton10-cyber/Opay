@@ -1,0 +1,169 @@
+name: Build APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: read
+
+concurrency:
+  group: opay-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build fullscreen portrait APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Prepare Capacitor Android project
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ ! -d "www" ] || [ ! -f "www/index.html" ]; then
+            echo "Expected the web app at www/index.html, but it was not found."
+            exit 1
+          fi
+
+          if [ ! -f "package.json" ]; then
+            npm init -y
+          fi
+
+          npm install --no-save --no-audit --no-fund \
+            @capacitor/core@6 \
+            @capacitor/cli@6 \
+            @capacitor/android@6
+
+          if [ ! -f "capacitor.config.json" ] && \
+             [ ! -f "capacitor.config.ts" ] && \
+             [ ! -f "capacitor.config.js" ]; then
+            cat > capacitor.config.json <<'JSON'
+          {
+            "appId": "com.clinton10cyber.opay",
+            "appName": "OPay",
+            "webDir": "www",
+            "bundledWebRuntime": false
+          }
+          JSON
+          fi
+
+          if [ ! -d "android" ]; then
+            npx cap add android
+          fi
+
+          npx cap sync android
+
+      - name: Apply portrait and immersive fullscreen settings
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python3 <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          manifest = Path("android/app/src/main/AndroidManifest.xml")
+          if not manifest.exists():
+              raise SystemExit(f"Android manifest not found: {manifest}")
+
+          android_ns = "http://schemas.android.com/apk/res/android"
+          ET.register_namespace("android", android_ns)
+          tree = ET.parse(manifest)
+          root = tree.getroot()
+          application = root.find("application")
+          if application is None:
+              raise SystemExit("Android manifest has no application element.")
+
+          main_activity = None
+          for activity in application.findall("activity"):
+              name = activity.get(f"{{{android_ns}}}name", "")
+              if name.endswith("MainActivity"):
+                  main_activity = activity
+                  break
+
+          if main_activity is None:
+              raise SystemExit("Could not find the Capacitor MainActivity.")
+          main_activity.set(f"{{{android_ns}}}screenOrientation", "portrait")
+          tree.write(manifest, encoding="utf-8", xml_declaration=True)
+          PY
+
+          APP_ID="com.clinton10cyber.opay"
+          JAVA_DIR="android/app/src/main/java/${APP_ID//./\/}"
+          mkdir -p "$JAVA_DIR"
+
+          # Replace the generated launcher activity with one that keeps
+          # Android system bars hidden while the app is in use.
+          find android/app/src/main -type f \( -name "MainActivity.kt" -o -name "MainActivity.java" \) -delete
+
+          cat > "$JAVA_DIR/MainActivity.java" <<'JAVA'
+          package com.clinton10cyber.opay;
+
+          import android.os.Bundle;
+          import android.view.View;
+          import com.getcapacitor.BridgeActivity;
+
+          public class MainActivity extends BridgeActivity {
+              @Override
+              public void onCreate(Bundle savedInstanceState) {
+                  super.onCreate(savedInstanceState);
+                  hideSystemBars();
+              }
+
+              @Override
+              public void onWindowFocusChanged(boolean hasFocus) {
+                  super.onWindowFocusChanged(hasFocus);
+                  if (hasFocus) {
+                      hideSystemBars();
+                  }
+              }
+
+              private void hideSystemBars() {
+                  getWindow().getDecorView().setSystemUiVisibility(
+                      View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                      | View.SYSTEM_UI_FLAG_FULLSCREEN
+                      | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                      | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                      | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                      | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                  );
+              }
+          }
+          JAVA
+
+      - name: Build debug APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          chmod +x android/gradlew
+          cd android
+          ./gradlew assembleDebug --no-daemon
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: opay-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 14
